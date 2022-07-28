@@ -221,7 +221,7 @@ def main():
 
         frame_github = Frame(root)
         frame_github.grid(column=2, row= 7, padx= 7, pady= 5, sticky= E)
-        ttk.Button(frame_github, text="GitHub", command=lambda: wb.open("https://python-para-impacientes.blogspot.com/2015/11/abrir-paginas-web-en-un-navegador-con.html", new=0, autoraise= True)).grid(column=0, row=0)
+        ttk.Button(frame_github, text="GitHub", command=lambda: wb.open("https://github.com/tobiasgrandi/Seguimiento-Plan-Carrera.git", new=0, autoraise= True)).grid(column=0, row=0)
     
         tree = interfaz_tree(root, orden.get())
         tree.tag_configure("aprobada", foreground="black", background="#94FF62")
