@@ -177,13 +177,13 @@ def armar_tree(tree, orden):
             tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]), tags= ("aprobada",))
         elif estado == "Final Pendiente":
             tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]), tags= ("final",))
-        elif corr_aprobadas(correlativas_curs):
-            database.update(row[0], {"Estado": "Se puede cursar"})
-            tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]), tags= ("cursar",))
         elif estado == "Recursar":
             tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]), tags= ("recursar",))
         elif estado == "Cursando":
             tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]), tags= ("cursando",))
+        elif corr_aprobadas(correlativas_curs):
+            database.update(row[0], {"Estado": "Se puede cursar"})
+            tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]), tags= ("cursar",))
         else:
             tree.insert("",0,text=row[0],values=(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
 
@@ -197,9 +197,9 @@ def modificar(mat_a_modificar, entries, toplevel, tree, orden):
     if nuevos_datos:
         if database.update(codigo_mat_a_modificar, nuevos_datos):
             armar_tree(tree, orden)
-            mb.showinfo("Listo","La materia ha sido modificada", parent=toplevel)
             entries.append(mat_a_modificar)
             eliminar_ingresos(entries)
             entries.remove(mat_a_modificar)
+            mb.showinfo("Listo","La materia ha sido modificada", parent=toplevel)
         else:
             mb.showerror("Error","No existe materia a modificar con el código ingresado", parent= toplevel)

@@ -75,6 +75,12 @@ def main():
             año.insert(0,datos_mat_a_mod[1])
             cuatrimestre.insert(0,datos_mat_a_mod[2])
             nombre.insert(0,datos_mat_a_mod[3])
+
+            if datos_mat_a_mod[4] == "Se puede cursar": #Si el estado de la materia es "Se puede cursar" agrega esta opción al combobox de estado
+                valores = list(estado["values"])
+                valores.append("Se puede cursar")
+                estado["values"] = valores
+
             estado.current(estado["values"].index(datos_mat_a_mod[4]))
 
             if datos_mat_a_mod[5] != "-":
