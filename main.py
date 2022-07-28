@@ -178,7 +178,7 @@ def main():
         tree.column("cuatrimestre", width=80, anchor=CENTER)
 
         tree.heading("nombre", text= "Nombre")
-        tree.column("nombre", width=170, anchor=CENTER)
+        tree.column("nombre", width=200, anchor=CENTER)
 
         tree.heading("estado", text="Estado")
         tree.column("estado", width=100, anchor=CENTER)
