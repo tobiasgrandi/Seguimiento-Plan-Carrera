@@ -33,12 +33,15 @@ def existen_corr(correlativas, toplevel):
 def corr_aprobadas(correlativas):
     """CHEQUEA SI LAS CORRELATIVAS INGRESADAS ESTÁN APROBADAS, RECIBE UNA LISTA DE CORRELATIVAS"""
 
-    if correlativas != "-":
+    if correlativas == "-":
+        return True
+
+    else:
         correlativas = correlativas.split("-")
 
         for correlativa in correlativas:
             estado_corr = database.obtener(correlativa, "estado")[0][0]
-            if estado_corr != "Aprobada":
+            if estado_corr not in ["Final Pendiente", "Aprobada"]:
                 return False
         return True
 
